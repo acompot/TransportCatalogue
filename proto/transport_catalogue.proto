@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package serialize_info;
+
+import "map_renderer.proto";
+import "transport_router.proto";
+
+message Stop {
+    string name = 1;
+  repeated double coordinate = 2;
+    repeated string near_stop = 3;
+    repeated int32 distance = 4;
+}
+
+message Bus {
+    string name = 1;
+    repeated string stop = 2;
+    bool is_circle = 3;
+
+}
+
+message TransportCatalogue {
+    repeated Stop stop = 1;
+    repeated Bus bus = 2;
+    RenderSettings render_settings = 3;
+    Router router = 4;
+}
+
+
